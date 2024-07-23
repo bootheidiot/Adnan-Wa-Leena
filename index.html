@@ -12,17 +12,39 @@ Adnan Wa Leena Episode 1
 عدنان ولينا الحلقة الأولى
 <br>
   
-    <html>
-<body>
-<form name="change">
-<SELECT NAME="options" ONCHANGE="document.getElementById(contentframe).src = this.options[this.selectedIndex].value">
-<option>choise</option>
-<option value="http://microsoft.com">Microsoft</option>
-</SELECT>
+0
 
-<iframe name="iframe" id="youriframe" src="yahoo.ca"></iframe>
+i have used this reference and another one, and came with this working example:
+
+<html>
+<head>
+    <script type="text/javascript">
+        function setIframeSource() {
+            var theSelect = document.getElementById('location');
+            var theIframe = document.getElementById('myIframe');
+            var theUrl;
+
+            theUrl = theSelect.options[theSelect.selectedIndex].value;
+            theIframe.src = theUrl;
+        }
+    </script>
+</head>
+<body>
+<form id="form1" method="post">
+   <label> Selecione a rede</label>
+
+    <select id="location" onchange="setIframeSource()"> 
+      <option value="https://www.dell.com/">CNN</option> 
+      <option value="https://www.americanas.com.br/">AMERICANAS</option> 
+      <option value="https://www.bbc.com/">BBC</option> 
+   </select>
+</form>
+
+<iframe id="myIframe" src="https://www.bbc.com/" frameborder="0" marginwidth="0" marginheight="0" width="800" height="400"></iframe>
+
 </body>
 </html>
+
     <div id="contentframe" style="position:relative; top: 160px; left: 0px;">
         <iframe src="select" frameborder="10" allowfullscreen seamless width="500" height="300" scroll="true">
  
